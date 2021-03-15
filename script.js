@@ -2,23 +2,24 @@ const imageContainer = document.querySelector('.image-container');
 const images = document.querySelectorAll('.image-container img');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
+const numImages = images.length;
+const imageWidth = 500;
 let loopInterval;
 let currentImage = 0;
 
-prev.addEventListener('click', () => handlePrevClick());
-next.addEventListener('click', () => handleNextClick());
+displayImage(0);
 
 loopImages();
 
-function handlePrevClick() {
+prev.addEventListener('click', () => {
     prevImage();
-    loopImages();
-}
+    loopImages();   
+});
 
-function handleNextClick() {
+next.addEventListener('click', () => {
     nextImage();
-    loopImages();
-}
+    loopImages();    
+});
 
 function loopImages() {
     const intervalTime = 2500;
@@ -29,15 +30,15 @@ function loopImages() {
 }
 
 function nextImage() {
-    currentImage = (currentImage + 1) % 4;
+    currentImage = (currentImage + 1) % numImages;
     displayImage(currentImage);
 }
 
 function prevImage() {
-    currentImage = (currentImage + 4 - 1) % 4;
+    currentImage = (currentImage + numImages - 1) % numImages;
     displayImage(currentImage);
 }
 
 function displayImage(imageNum) {
-    imageContainer.style.left = (-400 * imageNum) + 'px';
+    imageContainer.style.transform = `translateX(${-1 * imageWidth * imageNum}px)`;
 }
