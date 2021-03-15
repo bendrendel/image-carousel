@@ -7,44 +7,39 @@
 body {
   font-family: "Roboto", sans-serif;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  overflow: hidden;
   margin: 0;
 }
 
+img {
+  height: 500px;
+  width: 500px;
+  object-fit: cover;
+}
+
 .carousel {
-  width: 400px;
-  height: 450px;
+  width: 500px;
+  height: 550px;
   overflow: hidden;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.3);
   position: relative;
-  box-shadow: 0 0 5px 1px rgba(0,0,0,.2)
 }
 
 .image-container {
   display: flex;
   position: absolute;
-  top: 0;
-  left: 0px;
-  transition: left 0.5s linear;
-}
-
-img {
-  height: 400px;
-  width: 400px;
-  object-fit: cover;
-  object-position: center;
+  left: 0;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
 }
 
 .controls {
+  display: flex;
   position: absolute;
   bottom: 0;
-  left: 0;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
 }
 
@@ -54,11 +49,11 @@ button {
   height: 50px;
   background-color: #10445e;
   color: #fff;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: #386f8a;
-  cursor: pointer;
+  opacity: 0.9;
 }
 
 button:focus {
