@@ -23,7 +23,7 @@ body {
   box-shadow: 0 0 5px 1px rgba(0,0,0,.2)
 }
 
-.images {
+.image-container {
   display: flex;
   position: absolute;
   top: 0;
